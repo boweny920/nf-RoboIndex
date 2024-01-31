@@ -1,0 +1,88 @@
+@include "_targeted_compare_clustering.mro"
+@include "_targeted_compare_stages.mro"
+
+pipeline TARGETED_COMPARE(
+    in  string sample_id,
+    in  string sample_desc,
+    in  h5     targeted_molecule_info,
+    in  h5     parent_molecule_info,
+    in  csv    target_set,
+    in  bool   downsample_sc_data,
+    in  bool   plot_same_cluster_k,
+    out html   web_summary,
+    out csv    metrics_summary,
+    out json   summary_metrics_json,
+    out csv    barcode_summary,
+    out csv    feature_summary,
+    out json   alarms_json,
+)
+{
+    call TARGETED_COMPARE_PREFLIGHT(
+        targeted_molecule_info = self.targeted_molecule_info,
+        parent_molecule_info   = self.parent_molecule_info,
+        target_set             = self.target_set,
+    ) using (
+        preflight = true,
+    )
+
+    call COMPARE_BARCODE_RANK_PLOTS(
+        targeted_molecule_info = self.targeted_molecule_info,
+        parent_molecule_info   = self.parent_molecule_info,
+    )
+
+    call MAKE_PER_FEATURE_GEX_DF(
+        targeted_molecule_info = self.targeted_molecule_info,
+        parent_molecule_info   = self.parent_molecule_info,
+    )
+
+    call COMPUTE_SC_CORRELATIONS(
+        targeted_molecule_info = self.targeted_molecule_info,
+        parent_molecule_info   = self.parent_molecule_info,
+        barcode_summary_csv    = COMPARE_BARCODE_RANK_PLOTS.barcode_summary_csv,
+        downsample_sc_data     = self.downsample_sc_data,
+    )
+
+    call RUN_TARGETED_COMPARE_CLUSTERING as RUN_TARGETED_CLUSTERING(
+        matrix_h5 = COMPUTE_SC_CORRELATIONS.targeted_matrix_h5,
+    )
+
+    call RUN_TARGETED_COMPARE_CLUSTERING as RUN_PARENT_SUBSET_CLUSTERING(
+        matrix_h5 = COMPUTE_SC_CORRELATIONS.parent_matrix_subset_h5,
+    )
+
+    call RUN_TARGETED_COMPARE_CLUSTERING as RUN_PARENT_WTA_CLUSTERING(
+        matrix_h5 = COMPUTE_SC_CORRELATIONS.parent_matrix_wta_h5,
+    )
+
+    call SUMMARIZE_COMPARISON(
+        sample_id                     = self.sample_id,
+        sample_desc                   = self.sample_desc,
+        targeted_molecule_info        = self.targeted_molecule_info,
+        parent_molecule_info          = self.parent_molecule_info,
+        target_set                    = self.target_set,
+        barcode_summary_csv           = COMPARE_BARCODE_RANK_PLOTS.barcode_summary_csv,
+        feature_summary_csv           = MAKE_PER_FEATURE_GEX_DF.feature_summary_csv,
+        targeted_matrix_h5            = COMPUTE_SC_CORRELATIONS.targeted_matrix_h5,
+        parent_matrix_subset_h5       = COMPUTE_SC_CORRELATIONS.parent_matrix_subset_h5,
+        parent_matrix_wta_h5          = COMPUTE_SC_CORRELATIONS.parent_matrix_wta_h5,
+        tsne_targeted_h5              = RUN_TARGETED_CLUSTERING.tsne_h5,
+        tsne_parent_subset_h5         = RUN_PARENT_SUBSET_CLUSTERING.tsne_h5,
+        tsne_parent_wta_h5            = RUN_PARENT_WTA_CLUSTERING.tsne_h5,
+        targeted_clusters_h5          = RUN_TARGETED_CLUSTERING.kmeans_h5,
+        parent_clusters_subset_h5     = RUN_PARENT_SUBSET_CLUSTERING.kmeans_h5,
+        parent_clusters_wta_h5        = RUN_PARENT_WTA_CLUSTERING.kmeans_h5,
+        skip_clustering_targeted      = RUN_TARGETED_CLUSTERING.skip_clustering,
+        skip_clustering_parent_subset = RUN_PARENT_SUBSET_CLUSTERING.skip_clustering,
+        skip_clustering_parent_wta    = RUN_PARENT_WTA_CLUSTERING.skip_clustering,
+        plot_same_cluster_k           = self.plot_same_cluster_k,
+    )
+
+    return (
+        web_summary          = SUMMARIZE_COMPARISON.web_summary,
+        barcode_summary      = SUMMARIZE_COMPARISON.barcode_summary_csv,
+        feature_summary      = SUMMARIZE_COMPARISON.feature_summary_csv,
+        metrics_summary      = SUMMARIZE_COMPARISON.metrics_summary_csv,
+        summary_metrics_json = SUMMARIZE_COMPARISON.summary_metrics_json,
+        alarms_json          = SUMMARIZE_COMPARISON.alarms_json,
+    )
+}

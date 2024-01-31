@@ -1,0 +1,9 @@
+Bootstrap: docker
+From: condaforge/mambaforge:23.1.0-3
+
+%files
+nf-GenomeIndex.yml /home/by2747/miniconda3/envs/nf-GenomeIndex/nf-GenomeIndex.yml
+
+%post
+mamba env update -f /home/by2747/miniconda3/envs/nf-GenomeIndex/nf-GenomeIndex.yml
+

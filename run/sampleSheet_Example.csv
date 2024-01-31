@@ -1,0 +1,3 @@
+name,id,annotation_version,gtf_path,fna_path,ensembl_db,source
+saccharomyces_cerevisiae,R64-1-1,Ens_110,,,scerevisiae_gene_ensembl,ensembl
+Schmidtea_mediterranea,schMedS3,SIMR_1,/n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/data/schMedS3.Ens_102.gtf,/n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/data/schMedS3.fa,,

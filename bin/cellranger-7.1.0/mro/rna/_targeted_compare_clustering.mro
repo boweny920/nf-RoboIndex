@@ -1,0 +1,60 @@
+@include "_run_kmeans.mro"
+@include "_sc_rna_analyzer_stages.mro"
+@include "_targeted_compare_stages.mro"
+
+pipeline RUN_TARGETED_COMPARE_CLUSTERING(
+    in  h5   matrix_h5,
+    out h5   tsne_h5,
+    out h5   kmeans_h5,
+    out bool skip_clustering,
+)
+{
+    call CHECK_RUN_CLUSTERING(
+        matrix_h5 = self.matrix_h5,
+    )
+
+    call RUN_PCA(
+        matrix_h5           = self.matrix_h5,
+        random_seed         = null,
+        num_pca_bcs         = null,
+        num_pca_genes       = null,
+        num_principal_comps = null,
+        is_antibody_only    = false,
+    ) using (
+        disabled = CHECK_RUN_CLUSTERING.skip_clustering,
+    )
+
+    call RUN_TSNE(
+        matrix_h5        = self.matrix_h5,
+        pca_h5           = RUN_PCA.pca_h5,
+        random_seed      = null,
+        perplexity       = null,
+        input_pcs        = null,
+        max_dims         = null,
+        max_iter         = null,
+        stop_lying_iter  = null,
+        mom_switch_iter  = null,
+        theta            = null,
+        is_antibody_only = false,
+    ) using (
+        disabled = CHECK_RUN_CLUSTERING.skip_clustering,
+    )
+
+    call RUN_KMEANS(
+        matrix_h5    = self.matrix_h5,
+        pca_h5       = RUN_PCA.pca_h5,
+        random_seed  = null,
+        max_clusters = null,
+        num_bcs      = null,
+        num_pcs      = null,
+    ) using (
+        disabled = CHECK_RUN_CLUSTERING.skip_clustering,
+        volatile = true,
+    )
+
+    return (
+        tsne_h5         = RUN_TSNE.tsne_h5,
+        kmeans_h5       = RUN_KMEANS.kmeans_h5,
+        skip_clustering = CHECK_RUN_CLUSTERING.skip_clustering,
+    )
+}

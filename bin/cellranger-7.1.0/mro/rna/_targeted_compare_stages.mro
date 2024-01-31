@@ -1,0 +1,89 @@
+filetype csv;
+filetype h5;
+filetype html;
+filetype json;
+
+stage TARGETED_COMPARE_PREFLIGHT(
+    in  h5  targeted_molecule_info,
+    in  h5  parent_molecule_info,
+    in  csv target_set,
+    src py  "stages/targeted_compare/targeted_compare_preflight",
+) using (
+    volatile = strict,
+)
+
+stage SUMMARIZE_COMPARISON(
+    in  string sample_id,
+    in  string sample_desc,
+    in  h5     targeted_molecule_info,
+    in  h5     parent_molecule_info,
+    in  csv    target_set,
+    in  csv    feature_summary_csv,
+    in  csv    barcode_summary_csv,
+    in  h5     targeted_matrix_h5,
+    in  h5     parent_matrix_subset_h5,
+    in  h5     parent_matrix_wta_h5,
+    in  h5     tsne_targeted_h5,
+    in  h5     tsne_parent_subset_h5,
+    in  h5     tsne_parent_wta_h5,
+    in  h5     targeted_clusters_h5,
+    in  h5     parent_clusters_subset_h5,
+    in  h5     parent_clusters_wta_h5,
+    in  bool   skip_clustering_targeted,
+    in  bool   skip_clustering_parent_subset,
+    in  bool   skip_clustering_parent_wta,
+    in  bool   plot_same_cluster_k,
+    out csv    metrics_summary_csv,
+    out json   summary_metrics_json,
+    out csv    feature_summary_csv,
+    out csv    barcode_summary_csv,
+    out html   web_summary,
+    out json   alarms_json,
+    src py     "stages/targeted_compare/summarize_comparison",
+) split (
+) using (
+    mem_gb   = 4,
+    volatile = strict,
+)
+
+stage MAKE_PER_FEATURE_GEX_DF(
+    in  h5  targeted_molecule_info,
+    in  h5  parent_molecule_info,
+    out csv feature_summary_csv,
+    src py  "stages/targeted_compare/make_per_feature_gex_df",
+) split (
+) using (
+    volatile = strict,
+)
+
+stage COMPARE_BARCODE_RANK_PLOTS(
+    in  h5  targeted_molecule_info,
+    in  h5  parent_molecule_info,
+    out csv barcode_summary_csv,
+    src py  "stages/targeted_compare/compare_barcode_rank_plots",
+) split (
+) using (
+    volatile = strict,
+)
+
+stage COMPUTE_SC_CORRELATIONS(
+    in  h5   targeted_molecule_info,
+    in  h5   parent_molecule_info,
+    in  csv  barcode_summary_csv,
+    in  bool downsample_sc_data,
+    out h5   targeted_matrix_h5,
+    out h5   parent_matrix_subset_h5,
+    out h5   parent_matrix_wta_h5,
+    src py   "stages/targeted_compare/compute_sc_correlations",
+) split (
+) using (
+    volatile = strict,
+)
+
+stage CHECK_RUN_CLUSTERING(
+    in  h5   matrix_h5,
+    out bool skip_clustering,
+    src py   "stages/targeted_compare/check_run_clustering",
+) using (
+    volatile = strict,
+)

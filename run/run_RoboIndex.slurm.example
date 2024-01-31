@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=30
+#SBATCH --mem=100G
+#SBATCH --time=7-0
+#SBATCH --job-name=RoboIndex_Test
+#SBATCH --mail-user=by2747@stowers.org
+
+ml nextflow
+
+nextflow run /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/RoboIndex_main.nf --samplesheet /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/sampleSheet_Example.csv 

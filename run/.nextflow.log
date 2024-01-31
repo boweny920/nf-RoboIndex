@@ -1,0 +1,196 @@
+Aug-09 16:23:10.814 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/RoboIndex_main.nf --samplesheet /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/sampleSheet_Example.csv
+Aug-09 16:23:10.908 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.04.2
+Aug-09 16:23:10.926 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/by2747/.nextflow/plugins; core-plugins: nf-amazon@1.16.2,nf-azure@1.0.1,nf-codecommit@0.1.4,nf-console@1.0.5,nf-ga4gh@1.0.5,nf-google@1.7.3,nf-tower@1.5.12,nf-wave@0.8.3
+Aug-09 16:23:10.940 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Aug-09 16:23:10.941 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Aug-09 16:23:10.944 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Aug-09 16:23:10.954 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Aug-09 16:23:10.969 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/nextflow.config
+Aug-09 16:23:10.971 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/nextflow.config
+Aug-09 16:23:10.993 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Aug-09 16:23:11.439 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Aug-09 16:23:11.453 [main] INFO  nextflow.cli.CmdRun - Launching `/n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/RoboIndex_main.nf` [reverent_neumann] DSL2 - revision: 7b4663960e
+Aug-09 16:23:11.454 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Aug-09 16:23:11.454 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Aug-09 16:23:11.464 [main] DEBUG nextflow.secret.LocalSecretsProvider - Secrets store: /home/by2747/.nextflow/secrets/store.json
+Aug-09 16:23:11.467 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@31ee2fdb] - activable => nextflow.secret.LocalSecretsProvider@31ee2fdb
+Aug-09 16:23:11.521 [main] DEBUG nextflow.Session - Session UUID: b70e0de6-8cb7-41ce-8fce-cac74f4a1d11
+Aug-09 16:23:11.522 [main] DEBUG nextflow.Session - Run name: reverent_neumann
+Aug-09 16:23:11.522 [main] DEBUG nextflow.Session - Executor pool size: 30
+Aug-09 16:23:11.533 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=90; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Aug-09 16:23:11.554 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 23.04.2 build 5870
+  Created: 08-06-2023 08:29 UTC (03:29 CDT)
+  System: Linux 4.18.0-425.10.1.el8_7.x86_64
+  Runtime: Groovy 3.0.16 on OpenJDK 64-Bit Server VM 17.0.6+10-LTS
+  Encoding: UTF-8 (UTF-8)
+  Process: 2531127@cerebro102 [10.0.49.101]
+  CPUs: 30 - Mem: 100 GB (99.7 GB) - Swap: 0 (0)
+Aug-09 16:23:11.589 [main] DEBUG nextflow.Session - Work-dir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work [nfs]
+Aug-09 16:23:11.633 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Aug-09 16:23:11.642 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Aug-09 16:23:11.660 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Aug-09 16:23:11.669 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 31; maxThreads: 1000
+Aug-09 16:23:11.760 [main] DEBUG nextflow.Session - Session start
+Aug-09 16:23:12.033 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-09 16:23:12.678 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.678 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.683 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Aug-09 16:23:12.687 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=30; memory=100 GB; capacity=30; pollInterval=100ms; dumpInterval=5m
+Aug-09 16:23:12.815 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.816 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.823 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.824 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.828 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.829 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.832 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.832 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.837 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.837 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.841 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.841 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.844 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.845 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.849 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.849 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.851 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.852 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.854 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.854 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.856 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.856 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.859 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.859 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.861 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-09 16:23:12.862 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-09 16:23:12.865 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: bt2Index_Make, cellranger_singlecell_Index_Make, ROBO_FULL:GENOME_INDEX_BUILD:genomeBPtype_Make, ROBO_FULL:GENOME_INDEX_BUILD:bwaIndex_Make, ens_link_Make_for_SIMR, SampleSheet_SourceEnsembl, bwaIndex_Make, genomeBPtype_Make, ROBO_FULL:GENOME_INDEX_BUILD:transcriptData_Make, ROBO_FULL:GENOME_INDEX_BUILD:igv_genome_Make, ROBO_FULL:GENOME_INDEX_BUILD:riboList_Make, ROBO_FULL:SampleSheet_SourceEnsembl, ROBO_FULL:GENOME_INDEX_BUILD:ens_link_Make_for_SIMR, ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make, ROBO_FULL:GENOME_INDEX_BUILD:faidx_Make, ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make, RSEM_Make, bedFiles_Make, transcriptData_Make, faidx_Make, ROBO_FULL:GENOME_INDEX_BUILD:RSEM_Make, riboList_Make, ROBO_FULL:GENOME_INDEX_BUILD:refFlat_geneData_Make, refFlat_geneData_Make, ROBO_FULL:GENOME_INDEX_BUILD:STARMake, ROBO_FULL:GENOME_INDEX_BUILD:bedFiles_Make, igv_genome_Make, STARMake
+Aug-09 16:23:12.865 [main] DEBUG nextflow.Session - Igniting dataflow network (14)
+Aug-09 16:23:12.865 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:SampleSheet_SourceEnsembl
+Aug-09 16:23:12.866 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:refFlat_geneData_Make
+Aug-09 16:23:12.866 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:STARMake
+Aug-09 16:23:12.867 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:RSEM_Make
+Aug-09 16:23:12.867 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:bedFiles_Make
+Aug-09 16:23:12.868 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:genomeBPtype_Make
+Aug-09 16:23:12.868 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:riboList_Make
+Aug-09 16:23:12.869 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:transcriptData_Make
+Aug-09 16:23:12.870 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:ens_link_Make_for_SIMR
+Aug-09 16:23:12.870 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:faidx_Make
+Aug-09 16:23:12.870 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make
+Aug-09 16:23:12.871 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:bwaIndex_Make
+Aug-09 16:23:12.872 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make
+Aug-09 16:23:12.872 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:igv_genome_Make
+Aug-09 16:23:12.873 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Aug-09 16:23:12.873 [main] DEBUG nextflow.Session - Session await
+Aug-09 16:23:13.008 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:13.010 [Task submitter] INFO  nextflow.Session - [f5/f08897] Submitted process > ROBO_FULL:SampleSheet_SourceEnsembl
+Aug-09 16:23:24.710 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: ROBO_FULL:SampleSheet_SourceEnsembl; status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/f5/f08897d03fc4264462d895a54b8659]
+Aug-09 16:23:24.766 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.766 [Task submitter] INFO  nextflow.Session - [b1/befc7f] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:faidx_Make (1)
+Aug-09 16:23:24.791 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.791 [Task submitter] INFO  nextflow.Session - [83/07e347] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make (1)
+Aug-09 16:23:24.802 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.803 [Task submitter] INFO  nextflow.Session - [2a/e88b0c] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (1)
+Aug-09 16:23:24.812 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.813 [Task submitter] INFO  nextflow.Session - [6b/a5b646] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:STARMake (1)
+Aug-09 16:23:24.824 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.825 [Task submitter] INFO  nextflow.Session - [46/7347ab] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:bwaIndex_Make (1)
+Aug-09 16:23:24.835 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.835 [Task submitter] INFO  nextflow.Session - [1b/3b4221] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:RSEM_Make (1)
+Aug-09 16:23:24.846 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.846 [Task submitter] INFO  nextflow.Session - [d7/330ba0] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:bedFiles_Make (1)
+Aug-09 16:23:24.856 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.856 [Task submitter] INFO  nextflow.Session - [e1/b92c77] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:bwaIndex_Make (2)
+Aug-09 16:23:24.866 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.866 [Task submitter] INFO  nextflow.Session - [89/251618] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:faidx_Make (2)
+Aug-09 16:23:24.878 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.879 [Task submitter] INFO  nextflow.Session - [63/771602] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:igv_genome_Make (1)
+Aug-09 16:23:24.890 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.890 [Task submitter] INFO  nextflow.Session - [ee/9af330] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:RSEM_Make (2)
+Aug-09 16:23:24.899 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.900 [Task submitter] INFO  nextflow.Session - [3a/c19aa6] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:STARMake (2)
+Aug-09 16:23:24.911 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.911 [Task submitter] INFO  nextflow.Session - [1b/a32942] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (2)
+Aug-09 16:23:24.922 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.922 [Task submitter] INFO  nextflow.Session - [fb/ea11df] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:igv_genome_Make (2)
+Aug-09 16:23:24.934 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.935 [Task submitter] INFO  nextflow.Session - [b2/a6fe93] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make (2)
+Aug-09 16:23:24.945 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.945 [Task submitter] INFO  nextflow.Session - [95/30f644] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:bedFiles_Make (2)
+Aug-09 16:23:24.956 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.957 [Task submitter] INFO  nextflow.Session - [b2/7c90b4] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:refFlat_geneData_Make (1)
+Aug-09 16:23:24.967 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:24.968 [Task submitter] INFO  nextflow.Session - [d0/e10eba] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:refFlat_geneData_Make (2)
+Aug-09 16:23:25.124 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: ROBO_FULL:GENOME_INDEX_BUILD:faidx_Make (1); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/b1/befc7f087380669a9ebb3ea89c2859]
+Aug-09 16:23:25.144 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=90; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Aug-09 16:23:25.324 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: ROBO_FULL:GENOME_INDEX_BUILD:igv_genome_Make (2); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/fb/ea11df303e01f2cb0f8b86ebcd7432]
+Aug-09 16:23:25.356 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: ROBO_FULL:GENOME_INDEX_BUILD:igv_genome_Make (1); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/63/771602ba8a415da4b5aa5d310b446d]
+Aug-09 16:23:27.109 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: ROBO_FULL:GENOME_INDEX_BUILD:RSEM_Make (1); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/1b/3b42211e572a5c1948284d7e6c9637]
+Aug-09 16:23:27.725 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: ROBO_FULL:GENOME_INDEX_BUILD:bedFiles_Make (1); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/d7/330ba0760951b4ad3456a56939cfb6]
+Aug-09 16:23:28.798 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: ROBO_FULL:GENOME_INDEX_BUILD:faidx_Make (2); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/89/251618d6c928dcf4e20182b6d8f66d]
+Aug-09 16:23:31.998 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: ROBO_FULL:GENOME_INDEX_BUILD:bwaIndex_Make (1); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/46/7347abe4faa6be04fec17435069fae]
+Aug-09 16:23:32.370 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 19; name: ROBO_FULL:GENOME_INDEX_BUILD:bedFiles_Make (2); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/95/30f6447c72ffeb51c201f0d36cc328]
+Aug-09 16:23:32.625 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make (1); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/83/07e347b50c80679e1690c45cac0f8c]
+Aug-09 16:23:40.623 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (1); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/2a/e88b0c46c91f75a5821661498bb701]
+Aug-09 16:23:44.017 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: ROBO_FULL:GENOME_INDEX_BUILD:refFlat_geneData_Make (1); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/b2/7c90b431ca474807de797b952e227f]
+Aug-09 16:23:44.048 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:44.049 [Task submitter] INFO  nextflow.Session - [03/127bc5] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:transcriptData_Make (1)
+Aug-09 16:23:44.061 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:44.062 [Task submitter] INFO  nextflow.Session - [af/4a517f] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:riboList_Make (1)
+Aug-09 16:23:44.076 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:44.076 [Task submitter] INFO  nextflow.Session - [28/830988] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:genomeBPtype_Make (1)
+Aug-09 16:23:44.085 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:23:44.085 [Task submitter] INFO  nextflow.Session - [8b/012765] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:ens_link_Make_for_SIMR (1)
+Aug-09 16:23:44.562 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: ROBO_FULL:GENOME_INDEX_BUILD:STARMake (1); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/6b/a5b64608f80f65fb1402b3bfcf5548]
+Aug-09 16:23:44.697 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 20; name: ROBO_FULL:GENOME_INDEX_BUILD:ens_link_Make_for_SIMR (1); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/8b/012765c001314400b135ccd5e5f2c5]
+Aug-09 16:23:45.620 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: ROBO_FULL:GENOME_INDEX_BUILD:RSEM_Make (2); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/ee/9af33047936aa0c664f7d2b1e61b2f]
+Aug-09 16:23:46.338 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 23; name: ROBO_FULL:GENOME_INDEX_BUILD:transcriptData_Make (1); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/03/127bc5436872b99dbd2c8df0102d06]
+Aug-09 16:23:47.944 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 21; name: ROBO_FULL:GENOME_INDEX_BUILD:genomeBPtype_Make (1); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/28/83098889b3cc61c4b4b2172b6a2306]
+Aug-09 16:23:48.180 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 22; name: ROBO_FULL:GENOME_INDEX_BUILD:riboList_Make (1); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/af/4a517fe2f2d313948d5b42b738341d]
+Aug-09 16:24:06.968 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 18; name: ROBO_FULL:GENOME_INDEX_BUILD:refFlat_geneData_Make (2); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/d0/e10ebae8ca0e9d3be86a03d60e7964]
+Aug-09 16:24:06.991 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:24:06.992 [Task submitter] INFO  nextflow.Session - [59/3af3b1] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:transcriptData_Make (2)
+Aug-09 16:24:07.003 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:24:07.003 [Task submitter] INFO  nextflow.Session - [cc/90053f] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:ens_link_Make_for_SIMR (2)
+Aug-09 16:24:07.045 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:24:07.045 [Task submitter] INFO  nextflow.Session - [f6/6c67d2] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:riboList_Make (2)
+Aug-09 16:24:07.056 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-09 16:24:07.056 [Task submitter] INFO  nextflow.Session - [12/6d62e9] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:genomeBPtype_Make (2)
+Aug-09 16:24:07.292 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 25; name: ROBO_FULL:GENOME_INDEX_BUILD:ens_link_Make_for_SIMR (2); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/cc/90053fedbe3d7a18c83721cf7e7d6f]
+Aug-09 16:24:10.420 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 24; name: ROBO_FULL:GENOME_INDEX_BUILD:transcriptData_Make (2); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/59/3af3b168a4251072e8329497fed1d7]
+Aug-09 16:24:18.651 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 26; name: ROBO_FULL:GENOME_INDEX_BUILD:riboList_Make (2); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/f6/6c67d2013b55bc003275c26805daeb]
+Aug-09 16:24:36.304 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 27; name: ROBO_FULL:GENOME_INDEX_BUILD:genomeBPtype_Make (2); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/12/6d62e9db126251ebc54d9a91627f7f]
+Aug-09 16:28:12.892 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 4 -- submitted tasks are shown below
+~> TaskHandler[id: 14; name: ROBO_FULL:GENOME_INDEX_BUILD:bwaIndex_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/e1/b92c777aa16fc123342c7349f761cc]
+~> TaskHandler[id: 12; name: ROBO_FULL:GENOME_INDEX_BUILD:STARMake (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/3a/c19aa67e203b174f5d6a34f03981d2]
+~> TaskHandler[id: 16; name: ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/1b/a329424c97f4c5f3347533b6ae8b2c]
+~> TaskHandler[id: 17; name: ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/b2/a6fe93ceffa84bc90f6cc01db70811]
+Aug-09 16:30:34.533 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: ROBO_FULL:GENOME_INDEX_BUILD:STARMake (2); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/3a/c19aa67e203b174f5d6a34f03981d2]
+Aug-09 16:33:12.902 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 3 -- submitted tasks are shown below
+~> TaskHandler[id: 14; name: ROBO_FULL:GENOME_INDEX_BUILD:bwaIndex_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/e1/b92c777aa16fc123342c7349f761cc]
+~> TaskHandler[id: 16; name: ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/1b/a329424c97f4c5f3347533b6ae8b2c]
+~> TaskHandler[id: 17; name: ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/b2/a6fe93ceffa84bc90f6cc01db70811]
+Aug-09 16:36:27.683 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: ROBO_FULL:GENOME_INDEX_BUILD:bwaIndex_Make (2); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/e1/b92c777aa16fc123342c7349f761cc]
+Aug-09 16:38:12.942 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/1b/a329424c97f4c5f3347533b6ae8b2c]
+~> TaskHandler[id: 17; name: ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/b2/a6fe93ceffa84bc90f6cc01db70811]
+Aug-09 16:43:12.995 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/1b/a329424c97f4c5f3347533b6ae8b2c]
+~> TaskHandler[id: 17; name: ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/b2/a6fe93ceffa84bc90f6cc01db70811]
+Aug-09 16:46:36.095 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 17; name: ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make (2); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/b2/a6fe93ceffa84bc90f6cc01db70811]
+Aug-09 16:48:13.047 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/1b/a329424c97f4c5f3347533b6ae8b2c]
+Aug-09 16:53:13.106 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/1b/a329424c97f4c5f3347533b6ae8b2c]
+Aug-09 16:58:13.175 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/1b/a329424c97f4c5f3347533b6ae8b2c]
+Aug-09 17:03:13.215 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 16; name: ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (2); status: RUNNING; exit: -; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/1b/a329424c97f4c5f3347533b6ae8b2c]
+Aug-09 17:07:15.245 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 16; name: ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (2); status: COMPLETED; exit: 0; error: -; workDir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/1b/a329424c97f4c5f3347533b6ae8b2c]
+Aug-09 17:07:15.256 [main] DEBUG nextflow.Session - Session await > all processes finished
+Aug-09 17:07:15.259 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Aug-09 17:07:20.266 [main] INFO  nextflow.util.ThreadPoolHelper - Waiting for file transfers to complete (2 files)
+Aug-09 17:08:08.133 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Aug-09 17:08:08.150 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=27; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=1h 30m 50s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=18; peakCpus=18; peakMemory=0; ]
+Aug-09 17:08:08.354 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Aug-09 17:08:08.369 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Aug-09 17:08:08.369 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

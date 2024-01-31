@@ -1,0 +1,9 @@
+name: Secundo_star-env_2_7_3a
+channels:
+  - bioconda
+  - conda-forge
+  - bioconda/label/cf201901
+  - defaults
+dependencies:
+  - star=2.7.3a=0
+prefix: /home/by2747/miniconda3/envs/Secundo_star-env_2_7_3a

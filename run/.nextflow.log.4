@@ -1,0 +1,239 @@
+Aug-01 15:38:47.549 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/RoboIndex_main.nf --samplesheet /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/sampleSheet_Example.csv -resume
+Aug-01 15:38:47.655 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.04.2
+Aug-01 15:38:47.678 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/by2747/.nextflow/plugins; core-plugins: nf-amazon@1.16.2,nf-azure@1.0.1,nf-codecommit@0.1.4,nf-console@1.0.5,nf-ga4gh@1.0.5,nf-google@1.7.3,nf-tower@1.5.12,nf-wave@0.8.3
+Aug-01 15:38:47.691 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Aug-01 15:38:47.692 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Aug-01 15:38:47.694 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Aug-01 15:38:47.707 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Aug-01 15:38:47.725 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/nextflow.config
+Aug-01 15:38:47.727 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/nextflow.config
+Aug-01 15:38:47.752 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Aug-01 15:38:48.221 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Aug-01 15:38:48.241 [main] INFO  nextflow.cli.CmdRun - Launching `/n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/RoboIndex_main.nf` [shrivelled_wozniak] DSL2 - revision: 7b4663960e
+Aug-01 15:38:48.242 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Aug-01 15:38:48.242 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Aug-01 15:38:48.254 [main] DEBUG nextflow.secret.LocalSecretsProvider - Secrets store: /home/by2747/.nextflow/secrets/store.json
+Aug-01 15:38:48.258 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@6069dd38] - activable => nextflow.secret.LocalSecretsProvider@6069dd38
+Aug-01 15:38:48.327 [main] DEBUG nextflow.Session - Session UUID: 049f9237-25ec-4836-aacb-82c7185cdc3f
+Aug-01 15:38:48.327 [main] DEBUG nextflow.Session - Run name: shrivelled_wozniak
+Aug-01 15:38:48.328 [main] DEBUG nextflow.Session - Executor pool size: 30
+Aug-01 15:38:48.341 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=90; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Aug-01 15:38:48.372 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 23.04.2 build 5870
+  Created: 08-06-2023 08:29 UTC (03:29 CDT)
+  System: Linux 4.18.0-425.10.1.el8_7.x86_64
+  Runtime: Groovy 3.0.16 on OpenJDK 64-Bit Server VM 17.0.6+10-LTS
+  Encoding: UTF-8 (UTF-8)
+  Process: 2206669@cerebro101 [10.0.49.100]
+  CPUs: 30 - Mem: 100 GB (97.9 GB) - Swap: 0 (0)
+Aug-01 15:38:48.416 [main] DEBUG nextflow.Session - Work-dir: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work [nfs]
+Aug-01 15:38:48.447 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Aug-01 15:38:48.459 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Aug-01 15:38:48.485 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Aug-01 15:38:48.497 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 31; maxThreads: 1000
+Aug-01 15:38:48.608 [main] DEBUG nextflow.Session - Session start
+Aug-01 15:38:48.891 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-01 15:38:49.492 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.492 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.497 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Aug-01 15:38:49.501 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=30; memory=100 GB; capacity=30; pollInterval=100ms; dumpInterval=5m
+Aug-01 15:38:49.609 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.609 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.615 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.615 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.618 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.619 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.622 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.622 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.627 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.627 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.631 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.631 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.637 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.637 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.644 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.644 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.648 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.649 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.652 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.652 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.656 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.656 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.660 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.660 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.664 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-01 15:38:49.664 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-01 15:38:49.668 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: bt2Index_Make, cellranger_singlecell_Index_Make, ROBO_FULL:GENOME_INDEX_BUILD:genomeBPtype_Make, ROBO_FULL:GENOME_INDEX_BUILD:bwaIndex_Make, ens_link_Make_for_SIMR, SampleSheet_SourceEnsembl, bwaIndex_Make, genomeBPtype_Make, ROBO_FULL:GENOME_INDEX_BUILD:transcriptData_Make, ROBO_FULL:GENOME_INDEX_BUILD:igv_genome_Make, ROBO_FULL:GENOME_INDEX_BUILD:riboList_Make, ROBO_FULL:SampleSheet_SourceEnsembl, ROBO_FULL:GENOME_INDEX_BUILD:ens_link_Make_for_SIMR, ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make, ROBO_FULL:GENOME_INDEX_BUILD:faidx_Make, ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make, RSEM_Make, bedFiles_Make, transcriptData_Make, faidx_Make, ROBO_FULL:GENOME_INDEX_BUILD:RSEM_Make, riboList_Make, ROBO_FULL:GENOME_INDEX_BUILD:refFlat_geneData_Make, refFlat_geneData_Make, ROBO_FULL:GENOME_INDEX_BUILD:STARMake, ROBO_FULL:GENOME_INDEX_BUILD:bedFiles_Make, igv_genome_Make, STARMake
+Aug-01 15:38:49.669 [main] DEBUG nextflow.Session - Igniting dataflow network (14)
+Aug-01 15:38:49.669 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:SampleSheet_SourceEnsembl
+Aug-01 15:38:49.669 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:refFlat_geneData_Make
+Aug-01 15:38:49.670 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:STARMake
+Aug-01 15:38:49.670 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:RSEM_Make
+Aug-01 15:38:49.670 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:bedFiles_Make
+Aug-01 15:38:49.671 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:genomeBPtype_Make
+Aug-01 15:38:49.671 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:riboList_Make
+Aug-01 15:38:49.671 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:transcriptData_Make
+Aug-01 15:38:49.671 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:ens_link_Make_for_SIMR
+Aug-01 15:38:49.672 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:faidx_Make
+Aug-01 15:38:49.672 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make
+Aug-01 15:38:49.672 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:bwaIndex_Make
+Aug-01 15:38:49.673 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make
+Aug-01 15:38:49.673 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ROBO_FULL:GENOME_INDEX_BUILD:igv_genome_Make
+Aug-01 15:38:49.673 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Aug-01 15:38:49.673 [main] DEBUG nextflow.Session - Session await
+Aug-01 15:38:49.840 [Actor Thread 18] INFO  nextflow.processor.TaskProcessor - [19/6196c4] Cached process > ROBO_FULL:SampleSheet_SourceEnsembl
+Aug-01 15:38:49.885 [Actor Thread 18] INFO  nextflow.processor.TaskProcessor - [e7/9370f6] Cached process > ROBO_FULL:GENOME_INDEX_BUILD:RSEM_Make (1)
+Aug-01 15:38:49.885 [Actor Thread 21] INFO  nextflow.processor.TaskProcessor - [7a/2ac0f6] Cached process > ROBO_FULL:GENOME_INDEX_BUILD:bwaIndex_Make (1)
+Aug-01 15:38:49.885 [Actor Thread 26] INFO  nextflow.processor.TaskProcessor - [0f/cc2e6a] Cached process > ROBO_FULL:GENOME_INDEX_BUILD:faidx_Make (1)
+Aug-01 15:38:49.885 [Actor Thread 6] INFO  nextflow.processor.TaskProcessor - [69/31d72a] Cached process > ROBO_FULL:GENOME_INDEX_BUILD:faidx_Make (2)
+Aug-01 15:38:49.885 [Actor Thread 19] INFO  nextflow.processor.TaskProcessor - [7c/2b1fd5] Cached process > ROBO_FULL:GENOME_INDEX_BUILD:bedFiles_Make (1)
+Aug-01 15:38:49.889 [Actor Thread 25] INFO  nextflow.processor.TaskProcessor - [b1/4c515d] Cached process > ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make (1)
+Aug-01 15:38:49.890 [Actor Thread 8] INFO  nextflow.processor.TaskProcessor - [bd/29a304] Cached process > ROBO_FULL:GENOME_INDEX_BUILD:igv_genome_Make (2)
+Aug-01 15:38:49.892 [Actor Thread 30] INFO  nextflow.processor.TaskProcessor - [9e/fe25b5] Cached process > ROBO_FULL:GENOME_INDEX_BUILD:igv_genome_Make (1)
+Aug-01 15:38:49.897 [Actor Thread 17] INFO  nextflow.processor.TaskProcessor - [04/e5bcb3] Cached process > ROBO_FULL:GENOME_INDEX_BUILD:refFlat_geneData_Make (1)
+Aug-01 15:38:49.898 [Actor Thread 1] INFO  nextflow.processor.TaskProcessor - [fd/b4f2ed] Cached process > ROBO_FULL:GENOME_INDEX_BUILD:bedFiles_Make (2)
+Aug-01 15:38:49.904 [Actor Thread 26] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=90; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Aug-01 15:38:49.936 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 15:38:49.938 [Task submitter] INFO  nextflow.Session - [5b/508d16] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (1)
+Aug-01 15:38:49.949 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 15:38:49.950 [Task submitter] INFO  nextflow.Session - [d1/83447f] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:bwaIndex_Make (2)
+Aug-01 15:38:49.961 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 15:38:49.962 [Task submitter] INFO  nextflow.Session - [83/2aa8e2] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:STARMake (1)
+Aug-01 15:38:49.972 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 15:38:49.973 [Task submitter] INFO  nextflow.Session - [57/98cc93] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:STARMake (2)
+Aug-01 15:38:49.989 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 15:38:49.989 [Task submitter] INFO  nextflow.Session - [27/ff33b5] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:bt2Index_Make (2)
+Aug-01 15:38:50.001 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 15:38:50.002 [Task submitter] INFO  nextflow.Session - [53/8c9b18] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:cellranger_singlecell_Index_Make (2)
+Aug-01 15:38:50.011 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 15:38:50.012 [Task submitter] INFO  nextflow.Session - [47/9dd2d9] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:RSEM_Make (2)
+Aug-01 15:38:50.022 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 15:38:50.022 [Task submitter] INFO  nextflow.Session - [6e/8fc70d] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:refFlat_geneData_Make (2)
+Aug-01 15:38:50.032 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 15:38:50.033 [Task submitter] INFO  nextflow.Session - [8a/ecdb9b] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:genomeBPtype_Make (1)
+Aug-01 15:38:50.042 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 15:38:50.043 [Task submitter] INFO  nextflow.Session - [ae/e41406] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:riboList_Make (1)
+Aug-01 15:38:50.056 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-01 15:38:50.057 [Task submitter] INFO  nextflow.Session - [b6/564d4c] Submitted process > ROBO_FULL:GENOME_INDEX_BUILD:transcriptData_Make (1)
+Aug-01 15:38:50.065 [Task submitter] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ROBO_FULL:GENOME_INDEX_BUILD:ens_link_Make_for_SIMR (1); work-dir=/n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/eb/570f52ccbe89065617c5af6e87e22e
+  error [java.lang.reflect.UndeclaredThrowableException]: java.lang.reflect.UndeclaredThrowableException
+Aug-01 15:38:50.073 [Task submitter] ERROR nextflow.processor.TaskProcessor - Error executing process > 'ROBO_FULL:GENOME_INDEX_BUILD:ens_link_Make_for_SIMR (1)'
+
+Caused by:
+  File `/n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/TEST_runs/saccharomyces_cerevisiae/R64-1-1/annotation/Ens_110` is outside the scope of the process work directory: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/eb/570f52ccbe89065617c5af6e87e22e
+
+java.lang.reflect.UndeclaredThrowableException: null
+	at jdk.proxy1/jdk.proxy1.$Proxy30.apply(Unknown Source)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708)
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor97.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoCachedMethodSiteNoUnwrap.invoke(PojoMetaMethodSite.java:198)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:51)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:148)
+	at nextflow.processor.TaskRun.getOutputFilesNames(TaskRun.groovy:448)
+	at nextflow.processor.TaskBean.<init>(TaskBean.groovy:153)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:72)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:105)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at nextflow.processor.TaskRun.toTaskBean(TaskRun.groovy:879)
+	at nextflow.executor.local.LocalTaskHandler.buildTaskWrapper(LocalTaskHandler.groovy:128)
+	at nextflow.executor.local.LocalTaskHandler.submit(LocalTaskHandler.groovy:98)
+	at nextflow.processor.TaskPollingMonitor.submit(TaskPollingMonitor.groovy:195)
+	at nextflow.processor.LocalPollingMonitor.submit(LocalPollingMonitor.groovy:192)
+	at nextflow.processor.TaskPollingMonitor.submitPendingTasks(TaskPollingMonitor.groovy:561)
+	at nextflow.processor.TaskPollingMonitor.submitLoop(TaskPollingMonitor.groovy:386)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1258)
+	at groovy.lang.MetaClassImpl.invokeMethodClosure(MetaClassImpl.java:1047)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1132)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1035)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at groovy.lang.Closure.run(Closure.java:493)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: nextflow.exception.IllegalFileException: File `/n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/TEST_runs/saccharomyces_cerevisiae/R64-1-1/annotation/Ens_110` is outside the scope of the process work directory: /n/core/Bioinformatics/analysis/CompBio/boweny/nf-Pipeline/nextflow-GenomeIndex_Ver_5/run/work/eb/570f52ccbe89065617c5af6e87e22e
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:72)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:59)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at nextflow.script.params.FileOutParam.relativize(FileOutParam.groovy:233)
+	at jdk.internal.reflect.GeneratedMethodAccessor200.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:189)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:57)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:194)
+	at nextflow.script.params.FileOutParam.getFilePatterns(FileOutParam.groovy:212)
+	at nextflow.script.params.FileOutParam$getFilePatterns$2.call(Unknown Source)
+	at nextflow.processor.TaskRun.getOutputFilesNames0(TaskRun.groovy:455)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:362)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:61)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:176)
+	at nextflow.processor.TaskRun$_getOutputFilesNames_closure2.doCall(TaskRun.groovy:448)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:274)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1035)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at org.codehaus.groovy.runtime.ConvertedClosure.invokeCustom(ConvertedClosure.java:50)
+	at org.codehaus.groovy.runtime.ConversionHandler.invoke(ConversionHandler.java:112)
+	... 40 common frames omitted
+Aug-01 15:38:50.078 [Task submitter] DEBUG nextflow.Session - Session aborted -- Cause: java.lang.reflect.UndeclaredThrowableException
+Aug-01 15:38:50.092 [Task submitter] DEBUG nextflow.Session - The following nodes are still active:
+[process] ROBO_FULL:GENOME_INDEX_BUILD:genomeBPtype_Make
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] ROBO_FULL:GENOME_INDEX_BUILD:riboList_Make
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] ROBO_FULL:GENOME_INDEX_BUILD:transcriptData_Make
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] ROBO_FULL:GENOME_INDEX_BUILD:ens_link_Make_for_SIMR
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+Aug-01 15:38:50.094 [main] DEBUG nextflow.Session - Session await > all processes finished
+Aug-01 15:38:50.094 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Aug-01 15:38:50.105 [main] WARN  n.processor.TaskPollingMonitor - Killing running tasks (11)
+Aug-01 15:38:50.174 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=11; pendingCount=1; submittedCount=5; runningCount=-6; retriesCount=0; abortedCount=11; succeedDuration=0ms; failedDuration=0ms; cachedDuration=57.5s;loadCpus=-6; loadMemory=0; peakRunning=6; peakCpus=6; peakMemory=0; ]
+Aug-01 15:38:50.301 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Aug-01 15:38:50.315 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

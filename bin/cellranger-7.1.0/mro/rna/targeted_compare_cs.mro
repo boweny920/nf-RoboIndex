@@ -1,0 +1,31 @@
+@include "targeted_compare.mro"
+
+pipeline TARGETED_COMPARE_CS(
+    in  string sample_id               "Sample ID",
+    in  string sample_desc             "Sample description",
+    in  h5     targeted_molecule_info  "Targeted sample molecule counts",
+    in  h5     parent_molecule_info    "Parent sample molecule counts",
+    in  csv    target_set              "Target panel CSV",
+    out html   web_summary             "Sample comparison summary HTML",
+    out csv    metrics_summary         "Sample comparison summary CSV",
+    out csv    barcode_summary         "Per barcode metrics CSV",
+    out csv    feature_summary         "Per feature metrics CSV",
+)
+{
+    call TARGETED_COMPARE(
+        sample_id              = self.sample_id,
+        sample_desc            = self.sample_desc,
+        targeted_molecule_info = self.targeted_molecule_info,
+        parent_molecule_info   = self.parent_molecule_info,
+        target_set             = self.target_set,
+        downsample_sc_data     = false,
+        plot_same_cluster_k    = true,
+    )
+
+    return (
+        web_summary     = TARGETED_COMPARE.web_summary,
+        barcode_summary = TARGETED_COMPARE.barcode_summary,
+        feature_summary = TARGETED_COMPARE.feature_summary,
+        metrics_summary = TARGETED_COMPARE.metrics_summary,
+    )
+}

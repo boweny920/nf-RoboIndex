@@ -1,0 +1,342 @@
+#!/usr/bin/env python3
+#
+# Copyright (c) 2020 10X Genomics, Inc. All rights reserved.
+#
+"""Utility script to check the fraction of reads from a whole transcriptome experiment matching.
+
+a target panel and provide sequencing depth recommendations for a corresponding targeted
+experiment on the same (or a similar) sample.
+"""
+
+from __future__ import annotations
+
+import argparse
+import os
+import sys
+import warnings
+from math import sqrt
+
+warnings.simplefilter(action="ignore", category=FutureWarning)
+
+# pylint: disable=wrong-import-position
+import cellranger.molecule_counter as cr_mc
+import cellranger.targeted.simple_utils as cr_tgt_utils
+from cellranger.csv_utils import CSVParseException
+from cellranger.molecule_counter_extensions import get_indices_for_values
+from cellranger.rna.library import GENE_EXPRESSION_LIBRARY_TYPE
+from cellranger.targeted.targeted_constants import TARGETING_METHOD_HC
+
+MIN_TARGETED_READS = 1000
+# Maximum acceptable CV in the estimated panel content of the WTA sample
+# (i.e., fraction of reads expected to map to genes in the the target panel).
+# Equal to the CV in the estimated Targeted GEX sequencing depths.
+MAX_CV = 0.1
+
+SUPPORTED_PRODUCTS = ["cellranger", "spaceranger"]
+CELL_NAME = {"cellranger": "Cell", "spaceranger": "Spot"}
+RPC_NAME = {"cellranger": "rpc", "spaceranger": "rps"}
+# None indicates full depth for the whole transcriptome sample
+WTA_DEPTHS = {"cellranger": [None, 20000, 50000], "spaceranger": [None, 30000]}
+
+
+def print_err(string):
+    """Print to stderr."""
+    print(string, file=sys.stderr)
+
+
+def parse_args(product):
+    """Parse command line arguments."""
+    parser = argparse.ArgumentParser(
+        description=(
+            "Compute the fraction of reads from a whole transcriptome analysis that were "
+            "counted towards genes in a specified target panel. Also, provide sequencing "
+            "depth recommendations for a hypothetical targeted experiment on a similar "
+            "sample to achieve comparable sensitivity."
+        ),
+        prog=f"{product} targeted-depth",
+    )
+    required = parser.add_argument_group("required arguments")
+    required.add_argument(
+        "--molecule-h5",
+        type=str,
+        required=True,
+        help="path to molecule_info.h5 file from a whole transcriptome analysis",
+    )
+    required.add_argument(
+        "--target-panel", type=str, required=True, help="path to target panel CSV file"
+    )
+    return parser.parse_args()
+
+
+def check_path(path, name):
+    """Check that the file at `path` exists and is readable.
+
+    Exit on failure.
+
+    Returns:
+        The path.
+    """
+    if not os.path.exists(path):
+        print_err(f"error: The provided {name} does not exist: {path}")
+        sys.exit(3)
+    if not os.access(path, os.R_OK):
+        print_err(
+            "error: The provided {} is not readable, please check file permissions: {}".format(
+                name, path
+            )
+        )
+        sys.exit(4)
+    return path
+
+
+def check_molecule_counter(counter, product):
+    """Validate the molecule counter file.
+
+    Check that the molecule counter contains exactly one Gene Expression library
+    and is not a barnyard sample. Exit on failure, otherwise returns the index of
+    the Gene Expression library. Warn if there is a mismatch between `product` and
+    the data provided (spatial vs single cell).
+    """
+    gex_libs = counter.get_library_indices_by_type()[GENE_EXPRESSION_LIBRARY_TYPE]
+    if len(gex_libs) == 0:
+        print_err("error: The molecule info h5 file does not contain a Gene Expression library.")
+        sys.exit(5)
+    elif len(gex_libs) > 1:
+        # As of CR 4.0, this should not be possible since the merged molecule_info.h5 is not an
+        # output of the aggr pipeline
+        print_err(
+            "error: The molecule info h5 file was aggregated from multiple samples. "
+            "Please use a molecule info h5 file from a single sample run."
+        )
+        sys.exit(5)
+    elif len(counter.get_genomes()) > 1:
+        print_err("error: The molecule info h5 file was run using a multi-species reference.")
+        sys.exit(5)
+    gex_lib_idx = gex_libs[0]
+
+    # check that the sample type matches the product being used for targeted-depth
+    is_spatial = counter.is_spatial_data()
+    if product == "spaceranger" and not is_spatial:
+        print(
+            "\nWARNING: The molecule info h5 file is from a Cell Ranger analysis."
+            "\nPlease use cellranger targeted-depth for metrics and depth"
+            "\nrecommendations specific to Single Cell Gene Expression."
+        )
+    elif product == "cellranger" and is_spatial:
+        print(
+            "\nWARNING: The molecule info h5 file is from a Space Ranger analysis."
+            "\nPlease use spaceranger targeted-depth for metrics and depth"
+            "\nrecommendations specific to Spatial Gene Expression."
+        )
+
+    return gex_lib_idx
+
+
+def check_mol_info_format(mol_info_fn):
+    """Exit if the given file is not a valid molecule info h5 file from Cellranger 3.0 or later."""
+    try:
+        h5_file, molecule_h5_version = cr_mc.get_h5py_file_and_version(mol_info_fn)
+    # pylint: disable=broad-except
+    except Exception:
+        print_err(f"error: Not a valid molecule info h5 file: {mol_info_fn}")
+        sys.exit(5)
+    if (
+        cr_mc.METRICS_JSON_DATASET_NAME not in h5_file.keys()
+        and cr_mc.V3_METRICS_GROUP_NAME not in h5_file.keys()
+    ):
+        print_err(f"error: Not a valid molecule info h5 file: {mol_info_fn}")
+        sys.exit(5)
+    elif molecule_h5_version is None or molecule_h5_version < 3:
+        print_err(
+            "error: Molecule info h5 file is from Cell Ranger 2.1 or older. "
+            "Please use results from Cell Ranger 3.0 or later."
+        )
+        sys.exit(5)
+    h5_file.close()
+
+
+def parse_target_panel(target_panel_fn):
+    """Return the targeted gene IDs from a valid target panel csv file.
+
+    Exit if the file is not valid.
+    """
+    try:
+        _, targeted_gene_ids, _ = cr_tgt_utils.parse_target_csv(
+            target_panel_fn, expected_targeting_method=TARGETING_METHOD_HC
+        )
+    except CSVParseException as err:
+        print_err(f"error: {err}")
+        sys.exit(5)
+    except Exception:  # pylint: disable=broad-except
+        print_err(f"error: Not a valid target panel csv file: {target_panel_fn}")
+        sys.exit(5)
+    return targeted_gene_ids
+
+
+def binomial_cv(n, p_est):
+    """Compute the CV of an estimated binomial proportion.
+
+    Not reliable for very small n*p.
+    """
+    if n == 0 or p_est == 0:
+        return None  # shouldn't happen
+    std_error = sqrt(p_est * (1 - p_est) / n)
+    return std_error / p_est
+
+
+def _get_counter():
+    product = os.environ["TENX_PRODUCT"]
+    if product not in SUPPORTED_PRODUCTS:
+        print("targeted-depth: Error: Environment variable TENX_PRODUCT is invalid:", product)
+        sys.exit(1)
+
+    args = parse_args(product)
+
+    mol_info_fn = check_path(args.molecule_h5, "molecule info h5 file")
+    target_panel_fn = check_path(args.target_panel, "target panel csv file")
+    check_mol_info_format(mol_info_fn)
+
+    return cr_mc.MoleculeCounter.open(mol_info_fn, "r"), product, target_panel_fn
+
+
+def _get_targeted_gene_idx(counter: cr_mc.MoleculeCounter, target_panel_fn):
+    targeted_gene_ids = parse_target_panel(target_panel_fn)
+    feature_ref = counter.feature_reference
+    assert feature_ref is not None
+    gene_id_to_index = {
+        fdef.id: fdef.index
+        for fdef in feature_ref.feature_defs
+        if fdef.feature_type == GENE_EXPRESSION_LIBRARY_TYPE
+    }
+    targeted_gene_idx = [gene_id_to_index.get(gene_id) for gene_id in targeted_gene_ids]
+    if any(idx is None for idx in targeted_gene_idx):
+        missing_gene_id = targeted_gene_ids[targeted_gene_idx.index(None)]
+        print_err(
+            """error: The gene {} from the target panel csv is not present
+in the reference transcriptome used by the molecule info h5 file.""".format(
+                missing_gene_id
+            )
+        )
+        sys.exit(5)
+    return targeted_gene_idx
+
+
+def main():
+    counter, product, target_panel_fn = _get_counter()
+
+    gex_library_idx = check_molecule_counter(counter, product)
+    if cr_mc.MoleculeCounter.is_targeted_library(counter.get_library_info()[gex_library_idx]):
+        print(
+            "\nWARNING: The molecule info h5 file is already from a Targeted\n"
+            "Gene Expression analysis."
+        )
+
+    targeted_gene_idx = _get_targeted_gene_idx(counter, target_panel_fn)
+
+    num_cells = counter.get_num_filtered_barcodes_for_library(gex_library_idx)
+    num_raw_reads = counter.get_raw_read_pairs_per_library()[gex_library_idx]
+    raw_reads_per_cell = float(num_raw_reads) / float(num_cells)
+
+    gex_mol_idx = get_indices_for_values(counter, [cr_mc.LIBRARY_IDX_COL_NAME], gex_library_idx)
+    percent_sequencing_saturation = 100.0 * (
+        1.0
+        - float(gex_mol_idx.sum())
+        / float(max(counter.get_column_with_indices(cr_mc.COUNT_COL_NAME, gex_mol_idx).sum(), 1))
+    )
+
+    targeted_mol_idx = get_indices_for_values(
+        counter, [cr_mc.FEATURE_IDX_COL_NAME], targeted_gene_idx
+    )
+    num_targeted_reads = counter.get_column_with_indices(
+        cr_mc.COUNT_COL_NAME, targeted_mol_idx
+    ).sum()
+    targeted_reads_per_cell = float(num_targeted_reads) / float(num_cells)
+    frac_reads_counted_on_target = float(num_targeted_reads) / float(num_raw_reads)
+    percent_on_target = 100.0 * frac_reads_counted_on_target
+
+    estimate_cv = binomial_cv(n=num_raw_reads, p_est=frac_reads_counted_on_target)
+    if num_targeted_reads < MIN_TARGETED_READS or estimate_cv is None or estimate_cv > MAX_CV:
+        print_err(
+            "\nWARNING: Not enough data to accurately determine Targeted Gene Expression "
+            "sequencing depths. This may reflect low overall read depth and/or low panel "
+            "gene content in the whole transcriptome sample."
+        )
+
+    cell = CELL_NAME[product]
+
+    print("")
+    print("Whole Transcriptome Analysis (WTA) Input Sample Metrics:")
+    print("---------------------------------------------------------")
+    if product == "cellranger":
+        print(f"Estimated Number of Cells{num_cells:32,d}")
+    elif product == "spaceranger":
+        print(f"Number of Spots Under Tissue{num_cells:29,d}")
+    else:
+        # Shouldn't happen
+        print("targeted-depth: Error: Environment variable TENX_PRODUCT is invalid:", product)
+        sys.exit(1)
+    print(f"Number of Reads{num_raw_reads:42,d}")
+    print(f"Mean Reads per {cell}{raw_reads_per_cell:38.0f}")
+    print(f"Sequencing Saturation{percent_sequencing_saturation:35.1f}%")
+    print("")
+
+    if percent_on_target >= 1.0:
+        print(f"Fraction of Reads from Targeted Genes{percent_on_target:19.2f}%")
+    else:
+        print(f"Fraction of Reads from Targeted Genes{percent_on_target:19.2g}%")
+    print(f"Number of Reads from Targeted Genes{num_targeted_reads:22,d}")
+    print(f"Mean Reads per {cell} from Targeted Genes{targeted_reads_per_cell:18.0f}")
+
+    rpc = RPC_NAME[product]
+    wta_depths = WTA_DEPTHS[product]
+
+    _print_recommended_depths(
+        cell, rpc, num_raw_reads, frac_reads_counted_on_target, num_cells, wta_depths
+    )
+    _print_footer(cell, rpc)
+    counter.close()
+
+
+def _print_recommended_depths(
+    cell, rpc, num_raw_reads, frac_reads_counted_on_target, num_cells, wta_depths
+):
+    wta_depth_name = {}
+    reads_equiv = {}
+    rpc_equiv = {}
+    for depth in wta_depths:
+        if depth is None:
+            wta_depth_name[depth] = "Original"
+            adjusted_raw_reads = num_raw_reads
+        else:
+            wta_depth_name[depth] = f"{int(depth / 1000)}k {rpc}"
+            adjusted_raw_reads = depth * num_cells
+        reads_equiv[depth] = int(2.0 * adjusted_raw_reads * frac_reads_counted_on_target)
+        rpc_equiv[depth] = int(reads_equiv[depth] / num_cells)
+
+    print("\n")
+    print("Targeted GEX Recommended Sequencing Depths:")
+    print("---------------------------------------------------------")
+    print(f"WTA Depth     Mean Reads per {cell}     Total Reads")
+    print("---------------------------------------------------------")
+    for depth in wta_depths:
+        print(
+            "{:<14}{:<24,d}{:,d}".format(
+                wta_depth_name[depth], rpc_equiv[depth], reads_equiv[depth]
+            )
+        )
+
+
+def _print_footer(cell, rpc):
+    print("")
+    print("The recommended Targeted Gene Expression sequencing depth")
+    print("is calculated as 2.0 * WTA Depth * Fraction of Reads from")
+    print("Targeted Genes. The WTA Depth is in terms of Mean Reads")
+    print(f"per {cell} ({rpc}). The 2.0 depth adjustment factor can help")
+    print("compensate for non-uniform read coverage and reads that")
+    print("cannot be mapped confidently to targeted genes. These are")
+    print("approximate estimates, and final results may vary.")
+    print("")
+
+
+if __name__ == "__main__":
+    main()
